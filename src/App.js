@@ -1,4 +1,6 @@
 import './App.css';
+import Add from './expenses/add';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
