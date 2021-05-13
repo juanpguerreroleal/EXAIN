@@ -2,7 +2,7 @@ import React from "react";
 import InputField from "../shared/InputField";
 import SaveButton from "../shared/SaveButton";
 
-class AddExpense extends React.Component{
+class AddIncome extends React.Component{
     constructor(props){
         super(props);
         this.state = {name: "", quantity: 0};
@@ -37,7 +37,7 @@ class AddExpense extends React.Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h1 className="display-4">Add expense</h1>
+                            <h1 className="display-4">Add income</h1>
                         </div>
                     </div>
                     <form onSubmit={this.handleSubmit}>
@@ -70,4 +70,4 @@ class AddExpense extends React.Component{
             );
     };
 }
-export default AddExpense;
+export default AddIncome;

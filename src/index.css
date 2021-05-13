@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.horizontal-nav {
+  overflow: auto;
+  white-space: nowrap;
+  background-color: #5511ee;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.horizontal-nav-item {
+  display: inline-block;
+  background-color: #5511ee;
+  color:white;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+}
+.horizontal-nav-item a{
+  color: #ffffff;
+}
+.horizontal-nav-item a:hover{
+  color: #000000;
+}
