@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './dashboard';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import {Link, Route, Switch} from 'react-router-dom';
 import Expenses from './expenses/index';
 import Incomes from './incomes/index';
 import AddExpense from './expenses/add';
@@ -10,7 +10,6 @@ import AddIncome from './incomes/add';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
         <div className="horizontal-nav">
           <div className="horizontal-nav-item">
           <Link to="/dashboard">Home</Link>
@@ -29,10 +28,6 @@ function App() {
           <Route path="/expenses/add" component={AddExpense}/>
           <Route path="/incomes/add" component={AddIncome}/>
         </Switch>
-      </BrowserRouter>
-      <footer>
-        <p>Developed by Juan Guerrero</p>
-      </footer>
     </div>
   );
 }
