@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './dashboard';
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link, Redirect, Route, Switch} from 'react-router-dom';
 import Expenses from './expenses/index';
 import Incomes from './incomes/index';
 import AddExpense from './expenses/add';
@@ -22,6 +22,9 @@ function App() {
           </div>
         </div>
         <Switch>
+          <Route exact path="/" render={()=>{
+            return (<Redirect to="/dashboard" />);
+          }}/>
           <Route path="/dashboard" component={Dashboard}/>
           <Route path="/expenses/index" component={Expenses}/>
           <Route path="/incomes/index" component={Incomes}/>
