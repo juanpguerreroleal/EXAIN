@@ -9,7 +9,6 @@ class Expenses extends React.Component{
         fetch("https://testapp2.free.beeceptor.com/expenses") //Fake API
         .then(response => response.json())
         .then((result) => {
-            console.log(result);
             this.setState({expenses: result.expenses, isLoading: false}, ()=>{
             });
         },
@@ -19,7 +18,13 @@ class Expenses extends React.Component{
     }
     render(){
         if(this.state.isLoading){
-            return <p>Loading...</p>;
+            return (
+            <div>
+                <br/>
+                <div className="spinner-border text-dark" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>);
         }else{
             return (
                 <div className="container">
@@ -28,6 +33,7 @@ class Expenses extends React.Component{
                             <h1 className="display-4">Expenses</h1>
                         </div>
                         <div className="col-12">
+                            {this.state.expenses.length === 0 ? (<p>No hay ningun registro</p>):null}
                             <div className="table-responsive">
                             <table className="table table-hover">
                                 <tbody>

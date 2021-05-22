@@ -1,11 +1,12 @@
 import React from "react";
 import InputField from "../shared/InputField";
 import SaveButton from "../shared/SaveButton";
+import { Redirect } from "react-router-dom";
 
 class AddExpense extends React.Component{
     constructor(props){
         super(props);
-        this.state = {name: "", quantity: 0};
+        this.state = {name: "", quantity: 0, redirect: false};
     }
     setInputValue(input){
         let newState = this.state;
@@ -26,6 +27,12 @@ class AddExpense extends React.Component{
         console.log(data);
         e.preventDefault();
         //API call
+        
+        var newState = this.state;
+        if(newState.name !== "" && newState.quantity !== null){
+            newState.redirect = true;
+            this.setState(newState);
+        }
     }
     handleChange = (e)=>{
         const {name, value} = e.target;
@@ -34,6 +41,7 @@ class AddExpense extends React.Component{
     render(){
         return (
             <div className="add">
+                {this.state.redirect ? (<Redirect push to="/expenses/index"/>): null}
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
