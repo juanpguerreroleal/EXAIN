@@ -10,13 +10,13 @@ class Incomes extends React.Component{
         .then(response => response.json())
         .then((result) => {
             //console.log(result);
-            var msg = result.incomes.length > 0 ? "" : "No hay ningun registro.";
+            var msg = result.incomes.length > 0 ? "" : "There's not a single income entry.";
             this.setState({incomes: result.incomes, isLoading: false, message: msg}, ()=>{
             });
         },
         (error)=>{
             //console.log(error);
-            this.setState({incomes: [], isLoading: false, message:"Ocurrio un error conectandose al servicio"});
+            this.setState({incomes: [], isLoading: false, message:"Something went wrong"});
         });
     }
     render(){

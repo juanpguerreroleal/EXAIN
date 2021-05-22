@@ -9,12 +9,12 @@ class Expenses extends React.Component{
         fetch("https://testapp2.free.beeceptor.com/expenses") //Fake API
         .then(response => response.json())
         .then((result) => {
-            var msg = result.incomes.length > 0 ? "" : "No hay ningun registro.";
+            var msg = result.incomes.length > 0 ? "" : "There's not a single expense entry.";
             this.setState({expenses: result.expenses, isLoading: false, message: msg}, ()=>{
             });
         },
         (error)=>{
-            this.setState({expenses: [], isLoading: false, message:"Ocurrio un error conectandose al servicio"});
+            this.setState({expenses: [], isLoading: false, message:"Something went wrong"});
         });
     }
     render(){
