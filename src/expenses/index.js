@@ -3,17 +3,18 @@ import AddButton from "../shared/AddButton";
 class Expenses extends React.Component{
     constructor(props){
         super(props)
-        this.state = {expenses:[], isLoading:true};
+        this.state = {expenses:[], isLoading:true, message: ""};
     }
     componentDidMount(){
         fetch("https://testapp2.free.beeceptor.com/expenses") //Fake API
         .then(response => response.json())
         .then((result) => {
-            this.setState({expenses: result.expenses, isLoading: false}, ()=>{
+            var msg = result.incomes.length > 0 ? "" : "No hay ningun registro.";
+            this.setState({expenses: result.expenses, isLoading: false, message: msg}, ()=>{
             });
         },
         (error)=>{
-            this.setState({expenses: [], isLoading: false});
+            this.setState({expenses: [], isLoading: false, message:"Ocurrio un error conectandose al servicio"});
         });
     }
     render(){
@@ -33,7 +34,7 @@ class Expenses extends React.Component{
                             <h1 className="display-4">Expenses</h1>
                         </div>
                         <div className="col-12">
-                            {this.state.expenses.length === 0 ? (<p>No hay ningun registro</p>):null}
+                            {this.state.expenses.length === 0 ? (<p>{this.state.message}</p>):null}
                             <div className="table-responsive">
                             <table className="table table-hover">
                                 <tbody>
