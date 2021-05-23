@@ -9,7 +9,7 @@ class Expenses extends React.Component{
         fetch("https://testapp2.free.beeceptor.com/expenses") //Fake API
         .then(response => response.json())
         .then((result) => {
-            var msg = result.incomes.length > 0 ? "" : "There's not a single expense entry.";
+            var msg = result.expenses.length > 0 ? "" : "There's not a single expense entry.";
             this.setState({expenses: result.expenses, isLoading: false, message: msg}, ()=>{
             });
         },

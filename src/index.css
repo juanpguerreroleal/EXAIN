@@ -62,3 +62,13 @@ code {
 .expense{
   color: red;
 }
+.login{
+  background-color: #5511ee !important;
+  color: white;
+  border-radius: 0px 20px;
+}
+.custom-card {
+  background-color: #5511ee !important;
+  color: white;
+  border-radius: 0px 20px;
+}
